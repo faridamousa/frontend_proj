@@ -17,7 +17,7 @@ export const CharactersPage = () => {
   };
   const [name, setName] = useState("");
   const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`;
-  const { data } = useFetch(apiUrl);
+  const { data, info } = useFetch(apiUrl);
 
   return (
     <>
@@ -48,7 +48,12 @@ export const CharactersPage = () => {
           );
         })}
       </Box>
-      <Button onClick={() => setPage(page + 1)}>Next Page</Button>
+      <Button onClick={() => setPage(page - 1)} disabled={page === 1}>
+        Reverse Page
+      </Button>
+      <Button onClick={() => setPage(page + 1)} disabled={page === info}>
+        Next Page
+      </Button>
     </>
   );
 };
