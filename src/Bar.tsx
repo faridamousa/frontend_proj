@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { SearchBar } from "./searchbar";
 
-const navItems = ["Home", "Characters", "Details"];
+const navItems = ["Home", "Characters"];
 
 export const Bar = ({setName}) => {
   return (

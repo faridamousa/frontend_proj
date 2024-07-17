@@ -1,6 +1,6 @@
 //import "./CharactersPage.css";
 import { Box, Button } from "@mui/material";
-import { Card } from "./Card";
+import { CharacterCard } from "./Card";
 import { Bar } from "./Bar";
 import { useState } from "react";
 import { useFetch } from "./hooks/use-fetch-hook";
@@ -12,12 +12,12 @@ export const CharactersPage = () => {
       display: "flex",
       gap: "8px",
       justifyContent: "space-around",
+      flexWrap: "wrap",
     },
   };
   const [name, setName] = useState("");
   const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`;
   const { data } = useFetch(apiUrl);
-
 
   return (
     <>
@@ -25,16 +25,30 @@ export const CharactersPage = () => {
       <Box sx={styles.container}>
         {data.map((item) => {
           return (
-            <Card
+            <CharacterCard
               id={item.id}
               name={item.name}
               status={item.status}
               image={item.image}
+              species={""}
+              type={""}
+              gender={""}
+              origin={{
+                name: "",
+                url: "",
+              }}
+              location={{
+                name: "",
+                url: "",
+              }}
+              episode={[]}
+              url={""}
+              created={""}
             />
           );
         })}
-        <Button onClick={() => setPage(page + 1)}>Next</Button>
       </Box>
+      <Button onClick={() => setPage(page + 1)}>Next Page</Button>
     </>
   );
 };
