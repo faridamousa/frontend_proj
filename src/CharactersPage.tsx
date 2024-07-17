@@ -14,12 +14,14 @@ export const CharactersPage = () => {
       justifyContent: "space-around",
     },
   };
-  const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}`;
+  const [name, setName] = useState("");
+  const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`;
   const { data } = useFetch(apiUrl);
+
 
   return (
     <>
-      <Bar />
+      <Bar setName={setName} />
       <Box sx={styles.container}>
         {data.map((item) => {
           return (

@@ -1,23 +1,21 @@
+import { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
 
-export const SearchBar = () => {
-  const [name, setName] = useState("");
-
+export const SearchBar = ({ setName }) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submit action
-    const url = `https://rickandmortyapi.com/api/character/?name=${name}`;
-    console.log(url); // For demonstration, replace this with your actual navigation logic
+    event.preventDefault();
+    setName(searchTerm);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <TextField
         id="outlined-basic"
-        label="Outlined"
+        label="Character Name"
         variant="outlined"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
       <button type="submit">Search</button>
     </form>

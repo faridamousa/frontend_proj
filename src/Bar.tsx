@@ -5,10 +5,11 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material";
+import { SearchBar } from "./searchbar";
 
 const navItems = ["Home", "Characters", "Details"];
 
-export const Bar = ({}) => {
+export const Bar = ({setName}) => {
   return (
     <AppBar
       position="sticky"
@@ -25,6 +26,7 @@ export const Bar = ({}) => {
             </ListItemButton>
           </ListItem>
         ))}
+      <SearchBar setName={setName} />
       </List>
     </AppBar>
   );
