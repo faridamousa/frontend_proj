@@ -1,5 +1,3 @@
-// import { Episode } from "./Episodes";
-
 export interface Character {
   id: number;
   name: string;
