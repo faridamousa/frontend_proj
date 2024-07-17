@@ -1,0 +1,31 @@
+import {
+  AppBar,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
+
+const navItems = ["Home", "Characters", "Details"];
+
+export const Bar = ({}) => {
+  return (
+    <AppBar
+      position="sticky"
+      sx={{
+        alignItems: "flex-start",
+        backgroundImage: "linear-gradient(to right,  #260656, #51AFF7)",
+      }}
+    >
+      <List sx={{ display: "flex", flexDirection: "row" }}>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton href={`/${item.toLowerCase()}`}>
+              <ListItemText primary={item} sx={{ textAlign: "center" }} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </AppBar>
+  );
+};
