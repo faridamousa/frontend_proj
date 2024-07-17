@@ -1,12 +1,12 @@
-//import "./CharactersPage.css";
-import { Box, Button } from "@mui/material";
+import { Character } from "./interfaces/Character";
 import { CharacterCard } from "./CharacterCard";
-import { Bar } from "./Bar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFetch } from "./hooks/use-fetch-hook";
-
-export const CharactersPage = () => {
+import { Bar } from "./Bar";
+import { Box, Button } from "@mui/material";
+export const FavoritesPage = () => {
   const [page, setPage] = useState(1);
+  const [Favorites, setFavorites] = useState<number[]>([]);
   const styles = {
     container: {
       display: "flex",
@@ -15,13 +15,18 @@ export const CharactersPage = () => {
       flexWrap: "wrap",
     },
   };
-  const [name, setName] = useState("");
-  const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`;
-  const { data, info } = useFetch(apiUrl);
-
+  useEffect(() => {
+    const favoritesFromStorage = localStorage.getItem("favorites");
+    if (favoritesFromStorage) {
+      const parsedFavorites = JSON.parse(favoritesFromStorage);
+      setFavorites(parsedFavorites);
+    }
+  });
+  const ApiUrl = `https://rickandmortyapi.com/api/character/${Favorites}`;
+  const { data, info } = useFetch(ApiUrl);
   return (
     <>
-      <Bar setName={setName} />
+      <Bar setName={undefined} />
       <Box sx={styles.container}>
         {data.map((item) => {
           return (

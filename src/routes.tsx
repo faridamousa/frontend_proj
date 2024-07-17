@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { Home } from "./Home";
 import { CharactersPage } from "./CharactersPage";
 import { CharacterDetails } from "./CharacterDetails";
-import { Favorites } from "./Favorites";
+import { FavoritesPage } from "./FavoritesPage";
 
 export const AppRoutes = () => {
   return (
@@ -11,7 +11,7 @@ export const AppRoutes = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/characters" element={<CharactersPage />} />
       <Route path="/character/:id" element={<CharacterDetails />} />
-      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/favorites" element={<FavoritesPage />} />
     </Routes>
   );
 };
