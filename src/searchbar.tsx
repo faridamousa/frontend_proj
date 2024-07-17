@@ -11,7 +11,7 @@ export const SearchBar = ({ setName }) => {
   return (
     <form onSubmit={handleSubmit}>
       <TextField
-        sx={{ width: "100px" }}
+        sx={{ width: "200px" }}
         id="outlined-basic"
         label="Character Name"
         variant="outlined"
