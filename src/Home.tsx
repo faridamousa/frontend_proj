@@ -3,7 +3,7 @@ import { Bar } from "./Bar";
 export const Home = () => {
   return (
     <>
-      <Bar />
+      <Bar setName={undefined} />
       <Box
         sx={{
           fontFamily: "Arial, sans-serif",

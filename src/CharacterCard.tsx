@@ -35,7 +35,7 @@ export const CharacterCard = ({ name, status, image, id }: Character) => {
     }
     localStorage.setItem("favorites", JSON.stringify(favoritesArray));
     setFavorites(favoritesArray);
-    console.log(favorites);
+    
   };
 
   // <IconButton onClick={handleFavoriteClick}>
