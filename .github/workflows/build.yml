@@ -32,5 +32,5 @@ jobs:
           aws-region: eu-central-1
 
       - name: Upload to S3
-        run: aws s3 sync build s3://farida-2002
+        run: aws s3 sync dist s3://farida-2002
 
