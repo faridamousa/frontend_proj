@@ -9,6 +9,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    slackNotification:
+      name: Slack Notification Demo
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@master
+      - name: Slack Notification Demo
+        uses: bryannice/gitactions-slack-notification@2.0.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_MESSAGE: 'farida tryingg'
+          SLACK_TITLE: 'Slack Notification Demo'
+
       - name: Checkout Repository
         uses: actions/checkout@v2
 
