@@ -10,10 +10,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      
+
       - name: Send Slack Notification
         uses: slackapi/slack-github-action@v1
         with:
+          channel-id: general
           payload: |
             {
               "blocks": [
@@ -28,7 +29,6 @@ jobs:
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          SLACK_CHANNEL: 'C07E1BVU5S5'
 
       - name: Checkout Repository
         uses: actions/checkout@v2
