@@ -14,12 +14,24 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@master
-      - name: Slack Notification Demo
-        uses: bryannice/gitactions-slack-notification@2.0.0
+      - name: Send Slack Notification
+        uses: slackapi/slack-github-action@v1
+        with:
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": ":ghost: Detected a new change on *${{ github.event.repository.name }}* and *action: ${{ github.workflow }}* has been triggered by :bowtie: *${{ github.actor }}* on branch *${{ github.ref }}*  .. \n*Links:* (<${{ github.event.pull_request.html_url || github.event.head_commit.url }}|diff>, <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|job logs>)"
+                  }
+                }
+              ]
+            }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          SLACK_MESSAGE: 'farida tryingg'
-          SLACK_TITLE: 'Slack Notification Demo'
+          SLACK_CHANNEL: 'C07E1BVU5S5'
 
       - name: Checkout Repository
         uses: actions/checkout@v2
