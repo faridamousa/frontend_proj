@@ -9,7 +9,7 @@ import { SearchBar } from "./searchbar";
 
 const navItems = ["Home", "Characters", "Favorites"];
 
-export const Bar = ({ setName }) => {
+export const Bar = ({ setName }: { setName: (name: string) => void }) => {
   return (
     <AppBar
       position="sticky"

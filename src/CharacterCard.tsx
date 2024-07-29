@@ -17,7 +17,7 @@ export const CharacterCard = ({ name, status, image, id }: Character) => {
       backgroundColor: "#f0f0f0",
     },
   };
-  const [favorites, setFavorites] = useState<number[]>([]);
+  const [, setFavorites] = useState<number[]>([]);
   const handleFavoriteClick = (
     e: React.MouseEvent<HTMLButtonElement>
   ) => {

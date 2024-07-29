@@ -22,7 +22,7 @@ export const CharacterDetails = () => {
 
   return (
     <>
-      <Bar setName={undefined} />
+      <Bar setName={() => {}} />
       <Box>
         {character ? (
           <Box>

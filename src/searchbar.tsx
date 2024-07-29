@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import TextField from "@mui/material/TextField";
 
-export const SearchBar = ({ setName }) => {
+export const SearchBar = ({ setName }: { setName: (name: string) => void }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setName(searchTerm);
   };

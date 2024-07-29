@@ -13,13 +13,13 @@ export const FavoritesPage = () => {
     },
   };
 
-  const [data, isLoading, isError] = useFavorites();
+  const [data, , ] = useFavorites();
 
   return (
     <>
-      <Bar setName={undefined} />
+      <Bar setName={() => {}} />
       <Box sx={styles.container}>
-        {data?.data?.length > 0 &&
+        {typeof data !== 'boolean' && data?.data?.length > 0 &&
           data?.data?.map(
             (item: {
               id: number;
